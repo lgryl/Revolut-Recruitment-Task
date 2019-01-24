@@ -11,6 +11,7 @@
 		CBA1535521FA477B007DFB73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535421FA477B007DFB73 /* Assets.xcassets */; };
 		CBA1535821FA477B007DFB73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */; };
 		CBA1536321FA477B007DFB73 /* RevolutTestApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1536221FA477B007DFB73 /* RevolutTestApplicationTests.swift */; };
+		CBA1536E21FA48A1007DFB73 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +33,7 @@
 		CBA1535E21FA477B007DFB73 /* RevolutTestApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevolutTestApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA1536221FA477B007DFB73 /* RevolutTestApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutTestApplicationTests.swift; sourceTree = "<group>"; };
 		CBA1536421FA477B007DFB73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				CBA1535421FA477B007DFB73 /* Assets.xcassets */,
 				CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */,
 				CBA1535921FA477B007DFB73 /* Info.plist */,
+				CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */,
 			);
 			path = RevolutTestApplication;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */,
+				CBA1536E21FA48A1007DFB73 /* ConverterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2PLYRPR6X3;
+				DEVELOPMENT_TEAM = 5667E7L429;
 				INFOPLIST_FILE = RevolutTestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -363,7 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2PLYRPR6X3;
+				DEVELOPMENT_TEAM = 5667E7L429;
 				INFOPLIST_FILE = RevolutTestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
