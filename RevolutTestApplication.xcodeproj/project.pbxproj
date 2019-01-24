@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1534D21FA4779007DFB73 /* AppDelegate.swift */; };
-		CBA1535021FA4779007DFB73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1534F21FA4779007DFB73 /* ViewController.swift */; };
-		CBA1535321FA4779007DFB73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535121FA4779007DFB73 /* Main.storyboard */; };
 		CBA1535521FA477B007DFB73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535421FA477B007DFB73 /* Assets.xcassets */; };
 		CBA1535821FA477B007DFB73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */; };
 		CBA1536321FA477B007DFB73 /* RevolutTestApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1536221FA477B007DFB73 /* RevolutTestApplicationTests.swift */; };
@@ -28,8 +26,6 @@
 /* Begin PBXFileReference section */
 		CBA1534A21FA4778007DFB73 /* RevolutTestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutTestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA1534D21FA4779007DFB73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBA1534F21FA4779007DFB73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CBA1535221FA4779007DFB73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CBA1535421FA477B007DFB73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBA1535721FA477B007DFB73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBA1535921FA477B007DFB73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				CBA1534D21FA4779007DFB73 /* AppDelegate.swift */,
-				CBA1534F21FA4779007DFB73 /* ViewController.swift */,
-				CBA1535121FA4779007DFB73 /* Main.storyboard */,
 				CBA1535421FA477B007DFB73 /* Assets.xcassets */,
 				CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */,
 				CBA1535921FA477B007DFB73 /* Info.plist */,
@@ -179,7 +173,6 @@
 			files = (
 				CBA1535821FA477B007DFB73 /* LaunchScreen.storyboard in Resources */,
 				CBA1535521FA477B007DFB73 /* Assets.xcassets in Resources */,
-				CBA1535321FA4779007DFB73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +190,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBA1535021FA4779007DFB73 /* ViewController.swift in Sources */,
 				CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,14 +213,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CBA1535121FA4779007DFB73 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CBA1535221FA4779007DFB73 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
