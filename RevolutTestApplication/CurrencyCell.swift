@@ -18,11 +18,27 @@ class CurrencyCell: UITableViewCell {
     static let amountValidator = AmountValidator()
     static let amountCompleter = AmountCompleter()
     
+    static let numberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.locale = Locale.current
+        
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.minimumIntegerDigits = 1
+        
+        
+        return numberFormatter
+    }()
+    
+    var currencyCode: String = ""
+    var valueChangedAction: ((String, Decimal) -> ())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         amountTextField.keyboardType = .decimalPad
         amountTextField.delegate = self
+        amountTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     override func layoutSubviews() {
@@ -30,10 +46,17 @@ class CurrencyCell: UITableViewCell {
         flagImageView.layer.cornerRadius = flagImageView.bounds.width / 2
     }
     
-    func configure(with currencyCode: String) {
+    func configure(with amount: Amount) {
         amountTextField.isUserInteractionEnabled = false
         
-        symbolLabel.text = currencyCode
+        currencyCode = amount.currencyCode
+        
+        let amountString = CurrencyCell.numberFormatter.string(from: NSDecimalNumber(decimal: amount.value))
+        amountTextField.text = amountString
+        
+        symbolLabel.text = amount.currencyCode
+        
+        
         
         let flagImage = UIImage(named: "eu")
         flagImageView.image = flagImage
@@ -65,6 +88,13 @@ extension CurrencyCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.text = CurrencyCell.amountCompleter.complete(textField.text)
         amountTextField.isUserInteractionEnabled = false
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text, let value = Decimal(string: text, locale: Locale.current), let valueChangedAction = valueChangedAction {
+            
+            valueChangedAction(currencyCode, value)
+        }
     }
     
 }

@@ -21,7 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let initialViewController = ConverterViewController()
+        let dataProvider = ConverterDataProvider()
+        let presenter = ConverterPresenter(dataProvider: dataProvider)
+        let initialViewController = ConverterViewController(dataProvider: dataProvider, presenter: presenter)
+        presenter.viewController = initialViewController
+        
         window?.rootViewController = initialViewController
         window?.makeKeyAndVisible()
     }
