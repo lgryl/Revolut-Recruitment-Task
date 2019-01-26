@@ -9,7 +9,7 @@
 import UIKit
 
 class ConverterDataProvider: NSObject {
-    
+    let model = ["EUR", "PLN", "GBP"]
 }
 
 extension ConverterDataProvider: UITableViewDataSource {
@@ -18,13 +18,15 @@ extension ConverterDataProvider: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return model.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ConverterViewController.cellIdentifier) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ConverterViewController.cellIdentifier) as? CurrencyCell else {
             fatalError()
         }
+        let currencyCode = model[indexPath.row]
+        cell.configure(with: currencyCode)
         
         return cell
     }

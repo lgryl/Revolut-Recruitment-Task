@@ -15,4 +15,8 @@ class CurrencyCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var amountTextField: UITextField!
     
+    func configure(with currencyCode: String) {
+        symbolLabel.text = currencyCode
+    }
+    
 }
