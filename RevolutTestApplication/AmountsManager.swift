@@ -43,10 +43,21 @@ class AmountsManager {
         return amounts[index]
     }
     
+    public func index(of currencyCode: String) -> Int? {
+        for (index, amount) in amounts.enumerated() {
+            if currencyCode == amount.currencyCode {
+                return index
+            }
+        }
+        return nil
+    }
+    
     public func set(_ value: Decimal, for currencyCode: String) {
         for amount in amounts {
             if currencyCode == amount.currencyCode {
                 amount.value = value
+            } else {
+                amount.value = 2 * value
             }
         }
     }
