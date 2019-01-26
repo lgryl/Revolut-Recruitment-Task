@@ -9,7 +9,12 @@
 import UIKit
 
 class ConverterDataProvider: NSObject {
-    let model = ["EUR", "PLN", "GBP"]
+    var model = ["EUR", "PLN", "GBP"]
+    
+    fileprivate func moveToTheTopModelElement(at index: Int) {
+        let element = model.remove(at: index)
+        model.insert(element, at: 0)
+    }
 }
 
 extension ConverterDataProvider: UITableViewDataSource {
@@ -36,6 +41,10 @@ extension ConverterDataProvider: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        moveToTheTopModelElement(at: indexPath.row)
+        let firstIndexPath = IndexPath(row: 0, section: 0)
+        tableView.moveRow(at: indexPath, to: firstIndexPath)
     }
     
 }
