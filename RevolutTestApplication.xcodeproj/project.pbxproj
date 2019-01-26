@@ -14,6 +14,7 @@
 		CBA1536E21FA48A1007DFB73 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */; };
 		CBA1537021FC3D97007DFB73 /* CurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBA1536F21FC3D97007DFB73 /* CurrencyCell.xib */; };
 		CBA1537221FC3F4D007DFB73 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537121FC3F4D007DFB73 /* CurrencyCell.swift */; };
+		CBA1537421FC422B007DFB73 /* ConverterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537321FC422B007DFB73 /* ConverterDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 		CBA1536F21FC3D97007DFB73 /* CurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCell.xib; sourceTree = "<group>"; };
 		CBA1537121FC3F4D007DFB73 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
+		CBA1537321FC422B007DFB73 /* ConverterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */,
 				CBA1536F21FC3D97007DFB73 /* CurrencyCell.xib */,
 				CBA1537121FC3F4D007DFB73 /* CurrencyCell.swift */,
+				CBA1537321FC422B007DFB73 /* ConverterDataProvider.swift */,
 			);
 			path = RevolutTestApplication;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				CBA1537221FC3F4D007DFB73 /* CurrencyCell.swift in Sources */,
 				CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */,
 				CBA1536E21FA48A1007DFB73 /* ConverterViewController.swift in Sources */,
+				CBA1537421FC422B007DFB73 /* ConverterDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
