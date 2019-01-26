@@ -20,9 +20,12 @@ class CurrencyCell: UITableViewCell {
     
     static let numberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
-        numberFormatter.decimalSeparator = Locale.current.decimalSeparator
-        numberFormatter.minimumSignificantDigits = 2
+        numberFormatter.locale = Locale.current
+        
+        numberFormatter.minimumFractionDigits = 2
         numberFormatter.maximumFractionDigits = 2
+        numberFormatter.minimumIntegerDigits = 1
+        
         
         return numberFormatter
     }()
