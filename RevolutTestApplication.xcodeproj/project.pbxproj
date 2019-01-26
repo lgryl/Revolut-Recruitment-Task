@@ -12,6 +12,8 @@
 		CBA1535821FA477B007DFB73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */; };
 		CBA1536321FA477B007DFB73 /* RevolutTestApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1536221FA477B007DFB73 /* RevolutTestApplicationTests.swift */; };
 		CBA1536E21FA48A1007DFB73 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */; };
+		CBA1537021FC3D97007DFB73 /* CurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBA1536F21FC3D97007DFB73 /* CurrencyCell.xib */; };
+		CBA1537221FC3F4D007DFB73 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537121FC3F4D007DFB73 /* CurrencyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		CBA1536221FA477B007DFB73 /* RevolutTestApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutTestApplicationTests.swift; sourceTree = "<group>"; };
 		CBA1536421FA477B007DFB73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
+		CBA1536F21FC3D97007DFB73 /* CurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCell.xib; sourceTree = "<group>"; };
+		CBA1537121FC3F4D007DFB73 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 				CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */,
 				CBA1535921FA477B007DFB73 /* Info.plist */,
 				CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */,
+				CBA1536F21FC3D97007DFB73 /* CurrencyCell.xib */,
+				CBA1537121FC3F4D007DFB73 /* CurrencyCell.swift */,
 			);
 			path = RevolutTestApplication;
 			sourceTree = "<group>";
@@ -175,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBA1535821FA477B007DFB73 /* LaunchScreen.storyboard in Resources */,
+				CBA1537021FC3D97007DFB73 /* CurrencyCell.xib in Resources */,
 				CBA1535521FA477B007DFB73 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA1537221FC3F4D007DFB73 /* CurrencyCell.swift in Sources */,
 				CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */,
 				CBA1536E21FA48A1007DFB73 /* ConverterViewController.swift in Sources */,
 			);

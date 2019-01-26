@@ -10,6 +10,8 @@ import UIKit
 
 class ConverterViewController: UIViewController {
     
+    static let cellIdentifier = "CurrencyCell"
+    
     let tableView = UITableView()
     
     override func viewDidLoad() {
@@ -25,6 +27,9 @@ class ConverterViewController: UIViewController {
     }
     
     private func setupTableView() {
+        let cellXib = UINib(nibName: String(describing: CurrencyCell.self), bundle: nil)
+        tableView.register(cellXib, forCellReuseIdentifier: ConverterViewController.cellIdentifier)
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         
