@@ -71,6 +71,17 @@ class CurrencyCell: UITableViewCell {
         }
     }
     
+    fileprivate func sendValueChangedActionEvent() {
+        if var text = amountTextField.text {
+            if text.count == 0 {
+                text = "0"
+            }
+            if let value = Decimal(string: text, locale: Locale.current), let valueChangedAction = valueChangedAction {
+                valueChangedAction(currencyCode, value)
+            }
+        }
+    }
+    
 }
 
 extension CurrencyCell: UITextFieldDelegate {
@@ -88,13 +99,12 @@ extension CurrencyCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.text = CurrencyCell.amountCompleter.complete(textField.text)
         amountTextField.isUserInteractionEnabled = false
+        
+//        sendValueChangedActionEvent()
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        if let text = textField.text, let value = Decimal(string: text, locale: Locale.current), let valueChangedAction = valueChangedAction {
-            
-            valueChangedAction(currencyCode, value)
-        }
+        sendValueChangedActionEvent()
     }
     
 }

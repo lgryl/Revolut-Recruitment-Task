@@ -9,7 +9,22 @@
 import UIKit
 
 class ConverterDataProvider: NSObject {
-    let amountsManager = AmountsManager()
+    let ratesManager: RatesManager
+    let amountsManager: AmountsManager
+    
+    override init() {
+        ratesManager = RatesManager()
+         amountsManager = AmountsManager(ratesManager: ratesManager)
+    }
+
+    private func reloadAllButSelectedRows(in tableView: UITableView, currentIndexPath: IndexPath) {
+        if let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows {
+            let indexPathsForAllButSelectedRows = indexPathsForVisibleRows.filter { (indexPath) -> Bool in
+                indexPath != currentIndexPath
+            }
+            tableView.reloadRows(at: indexPathsForAllButSelectedRows, with: .none)
+        }
+    }
     
 }
 
@@ -28,6 +43,10 @@ extension ConverterDataProvider: UITableViewDataSource {
         }
         cell.valueChangedAction = { [unowned self] (currencyCode, value) in
             self.amountsManager.set(value, for: currencyCode)
+            if let currentIndex = self.amountsManager.index(of: currencyCode) {
+                let currentIndexPath = IndexPath(row: 0, section: currentIndex)
+                self.reloadAllButSelectedRows(in: tableView, currentIndexPath: currentIndexPath)
+            }
         }
         
         let amount = amountsManager.amount(at: indexPath.row)

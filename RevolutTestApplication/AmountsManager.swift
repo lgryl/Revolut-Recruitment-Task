@@ -29,18 +29,38 @@ class AmountsManager {
         Amount(currencyCode: "ISK", value: 0.0)
     ]
     
+    weak var ratesManager: RatesManager?
+    
     var amountsCount: Int {
         return amounts.count
+    }
+    
+    init(ratesManager: RatesManager) {
+        self.ratesManager = ratesManager
     }
     
     public func amount(at index: Int) -> Amount {
         return amounts[index]
     }
     
+    public func index(of currencyCode: String) -> Int? {
+        for (index, amount) in amounts.enumerated() {
+            if currencyCode == amount.currencyCode {
+                return index
+            }
+        }
+        return nil
+    }
+    
     public func set(_ value: Decimal, for currencyCode: String) {
         for amount in amounts {
             if currencyCode == amount.currencyCode {
                 amount.value = value
+            } else {
+                if let ratesManager = ratesManager {
+                    let rate = ratesManager.rate(from: currencyCode, to: amount.currencyCode)
+                    amount.value = value * rate
+                }
             }
         }
     }
