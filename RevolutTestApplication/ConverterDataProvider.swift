@@ -49,4 +49,8 @@ extension ConverterDataProvider: UITableViewDelegate {
         tableView.scrollToRow(at: firstIndexPath, at: .top, animated: true)
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        scrollView.endEditing(true)
+    }
+    
 }
