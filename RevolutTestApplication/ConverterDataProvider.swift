@@ -9,8 +9,13 @@
 import UIKit
 
 class ConverterDataProvider: NSObject {
-    let amountsManager = AmountsManager()
+    let ratesManager: RatesManager
+    let amountsManager: AmountsManager
     
+    override init() {
+        ratesManager = RatesManager()
+         amountsManager = AmountsManager(ratesManager: ratesManager)
+    }
 }
 
 extension ConverterDataProvider: UITableViewDataSource {

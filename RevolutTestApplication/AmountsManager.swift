@@ -29,8 +29,14 @@ class AmountsManager {
         Amount(currencyCode: "ISK", value: 0.0)
     ]
     
+    weak var ratesManager: RatesManager?
+    
     var amountsCount: Int {
         return amounts.count
+    }
+    
+    init(ratesManager: RatesManager) {
+        self.ratesManager = ratesManager
     }
     
     public func amount(at index: Int) -> Amount {

@@ -19,6 +19,7 @@
 		CBA1537821FC6822007DFB73 /* AmountCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537721FC6822007DFB73 /* AmountCompleter.swift */; };
 		CBA1537A21FC6E19007DFB73 /* ConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537921FC6E19007DFB73 /* ConverterPresenter.swift */; };
 		CBA1537C21FC7400007DFB73 /* AmountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537B21FC7400007DFB73 /* AmountsManager.swift */; };
+		CBA1537E21FC8A4D007DFB73 /* RatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537D21FC8A4D007DFB73 /* RatesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		CBA1537721FC6822007DFB73 /* AmountCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountCompleter.swift; sourceTree = "<group>"; };
 		CBA1537921FC6E19007DFB73 /* ConverterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterPresenter.swift; sourceTree = "<group>"; };
 		CBA1537B21FC7400007DFB73 /* AmountsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountsManager.swift; sourceTree = "<group>"; };
+		CBA1537D21FC8A4D007DFB73 /* RatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				CBA1537721FC6822007DFB73 /* AmountCompleter.swift */,
 				CBA1537921FC6E19007DFB73 /* ConverterPresenter.swift */,
 				CBA1537B21FC7400007DFB73 /* AmountsManager.swift */,
+				CBA1537D21FC8A4D007DFB73 /* RatesManager.swift */,
 			);
 			path = RevolutTestApplication;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA1537E21FC8A4D007DFB73 /* RatesManager.swift in Sources */,
 				CBA1537621FC5182007DFB73 /* AmountValidator.swift in Sources */,
 				CBA1537C21FC7400007DFB73 /* AmountsManager.swift in Sources */,
 				CBA1537821FC6822007DFB73 /* AmountCompleter.swift in Sources */,
