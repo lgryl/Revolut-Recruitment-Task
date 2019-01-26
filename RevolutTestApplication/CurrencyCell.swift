@@ -17,6 +17,8 @@ class CurrencyCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        amountTextField.keyboardType = .decimalPad
         amountTextField.delegate = self
     }
     
