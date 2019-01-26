@@ -11,7 +11,6 @@ import Foundation
 class AmountsManager {
     private var amounts: [Amount] = [
         Amount(currencyCode: "EUR", value: 0.0),
-        Amount(currencyCode: "EUR", value: 0.0),
         Amount(currencyCode: "AUD", value: 0.0),
         Amount(currencyCode: "BGN", value: 0.0),
         Amount(currencyCode: "BRL", value: 0.0),
@@ -38,6 +37,14 @@ class AmountsManager {
         return amounts[index]
     }
     
+    public func set(_ value: Decimal, for currencyCode: String) {
+        for amount in amounts {
+            if currencyCode == amount.currencyCode {
+                amount.value = value
+            }
+        }
+    }
+    
     public func moveAmountFrom(sourceIndex: Int, to destinationIndex: Int) {
         let element = amounts.remove(at: sourceIndex)
         amounts.insert(element, at: destinationIndex)
@@ -45,7 +52,12 @@ class AmountsManager {
     }
 }
 
-struct Amount {
-    let currencyCode: String
-    let value: Decimal
+class Amount {
+    var currencyCode: String
+    var value: Decimal
+    
+    init(currencyCode: String, value: Decimal) {
+        self.currencyCode = currencyCode
+        self.value = value
+    }
 }

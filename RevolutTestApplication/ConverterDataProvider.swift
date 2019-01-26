@@ -26,6 +26,10 @@ extension ConverterDataProvider: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ConverterViewController.cellIdentifier) as? CurrencyCell else {
             fatalError()
         }
+        cell.valueChangedAction = { [unowned self] (currencyCode, value) in
+            self.amountsManager.set(value, for: currencyCode)
+        }
+        
         let amount = amountsManager.amount(at: indexPath.row)
         cell.configure(with: amount)
         
