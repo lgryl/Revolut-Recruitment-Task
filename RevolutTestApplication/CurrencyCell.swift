@@ -18,6 +18,13 @@ class CurrencyCell: UITableViewCell {
     static let amountValidator = AmountValidator()
     static let amountCompleter = AmountCompleter()
     
+    static let numberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.decimalSeparator = Locale.current.decimalSeparator
+        
+        return numberFormatter
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -30,10 +37,15 @@ class CurrencyCell: UITableViewCell {
         flagImageView.layer.cornerRadius = flagImageView.bounds.width / 2
     }
     
-    func configure(with currencyCode: String) {
+    func configure(with amount: Amount) {
         amountTextField.isUserInteractionEnabled = false
         
-        symbolLabel.text = currencyCode
+        let amountString = CurrencyCell.numberFormatter.string(from: NSDecimalNumber(decimal: amount.value))
+        amountTextField.text = amountString
+        
+        symbolLabel.text = amount.currencyCode
+        
+        
         
         let flagImage = UIImage(named: "eu")
         flagImageView.image = flagImage

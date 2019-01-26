@@ -9,12 +9,8 @@
 import UIKit
 
 class ConverterDataProvider: NSObject {
-    var model = ["EUR", "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK", "DKK", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "ISK"]
+    let amountsManager = AmountsManager()
     
-    fileprivate func moveToTheTopModelElement(at index: Int) {
-        let element = model.remove(at: index)
-        model.insert(element, at: 0)
-    }
 }
 
 extension ConverterDataProvider: UITableViewDataSource {
@@ -23,15 +19,15 @@ extension ConverterDataProvider: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.count
+        return amountsManager.amountsCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ConverterViewController.cellIdentifier) as? CurrencyCell else {
             fatalError()
         }
-        let currencyCode = model[indexPath.row]
-        cell.configure(with: currencyCode)
+        let amount = amountsManager.amount(at: indexPath.row)
+        cell.configure(with: amount)
         
         return cell
     }
@@ -42,7 +38,7 @@ extension ConverterDataProvider: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        moveToTheTopModelElement(at: indexPath.row)
+        amountsManager.moveAmountFrom(sourceIndex: indexPath.row, to: 0)
         let firstIndexPath = IndexPath(row: 0, section: 0)
         tableView.moveRow(at: indexPath, to: firstIndexPath)
         
