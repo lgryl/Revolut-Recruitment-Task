@@ -9,7 +9,7 @@
 import UIKit
 
 class ConverterDataProvider: NSObject {
-    var model = ["EUR", "PLN", "GBP"]
+    var model = ["EUR", "AUD", "BGN", "BRL", "CAD", "CHF", "CNY", "CZK", "DKK", "GBP", "HKD", "HRK", "HUF", "IDR", "ILS", "INR", "ISK"]
     
     fileprivate func moveToTheTopModelElement(at index: Int) {
         let element = model.remove(at: index)
@@ -45,6 +45,8 @@ extension ConverterDataProvider: UITableViewDelegate {
         moveToTheTopModelElement(at: indexPath.row)
         let firstIndexPath = IndexPath(row: 0, section: 0)
         tableView.moveRow(at: indexPath, to: firstIndexPath)
+        
+        tableView.scrollToRow(at: firstIndexPath, at: .top, animated: true)
     }
     
 }
