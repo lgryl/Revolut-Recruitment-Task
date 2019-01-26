@@ -44,8 +44,24 @@ class RatesManager {
         "ZAR": 17.765
     ]
     
-    public func rate(for currencyCode: String) -> Decimal? {
-        return rates[currencyCode]
+    public func rate(for currencyCode: String) -> Decimal {
+        guard currencyCode != "EUR" else {
+            return 1
+        }
+        return rates[currencyCode] ?? 1
+    }
+    
+    public func rate(from sourceCurrency: String, to destinationCurrency: String) -> Decimal {
+        if sourceCurrency == "EUR" {
+            return rate(for: destinationCurrency)
+        }
+        if destinationCurrency == "EUR" {
+            return 1 / rate(for: sourceCurrency)
+        }
+        let sourceToEuroRate = 1 / rate(for: sourceCurrency)
+        let euroToDestinationRate = rate(for: destinationCurrency)
+        let finalRate = sourceToEuroRate * euroToDestinationRate
+        return finalRate
     }
 }
 

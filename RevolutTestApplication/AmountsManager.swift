@@ -57,7 +57,10 @@ class AmountsManager {
             if currencyCode == amount.currencyCode {
                 amount.value = value
             } else {
-                amount.value = 2 * value
+                if let ratesManager = ratesManager {
+                    let rate = ratesManager.rate(from: currencyCode, to: amount.currencyCode)
+                    amount.value = value * rate
+                }
             }
         }
     }
