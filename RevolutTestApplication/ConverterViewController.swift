@@ -13,6 +13,7 @@ class ConverterViewController: UIViewController {
     static let cellIdentifier = "CurrencyCell"
     
     let tableView = UITableView()
+    let dataProvider = ConverterDataProvider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,11 @@ class ConverterViewController: UIViewController {
     }
     
     private func setupTableView() {
+        tableView.delegate = dataProvider
+        tableView.dataSource = dataProvider
+        
+        tableView.rowHeight = 60.0
+        
         let cellXib = UINib(nibName: String(describing: CurrencyCell.self), bundle: nil)
         tableView.register(cellXib, forCellReuseIdentifier: ConverterViewController.cellIdentifier)
         
