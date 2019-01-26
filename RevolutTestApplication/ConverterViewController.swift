@@ -8,12 +8,28 @@
 
 import UIKit
 
-class ConverterViewController: UIViewController {
+protocol ConverterDisplayable: class {
+    
+}
+
+class ConverterViewController: UIViewController, ConverterDisplayable {
     
     static let cellIdentifier = "CurrencyCell"
     
     let tableView = UITableView()
-    let dataProvider = ConverterDataProvider()
+    
+    let dataProvider: ConverterDataProvider
+    let presenter: ConverterPresenter
+    
+    init(dataProvider: ConverterDataProvider, presenter: ConverterPresenter) {
+        self.dataProvider = dataProvider
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("You shouldn't use Storyboard to create this class.")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

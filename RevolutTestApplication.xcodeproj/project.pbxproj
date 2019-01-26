@@ -17,6 +17,7 @@
 		CBA1537421FC422B007DFB73 /* ConverterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537321FC422B007DFB73 /* ConverterDataProvider.swift */; };
 		CBA1537621FC5182007DFB73 /* AmountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537521FC5182007DFB73 /* AmountValidator.swift */; };
 		CBA1537821FC6822007DFB73 /* AmountCompleter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537721FC6822007DFB73 /* AmountCompleter.swift */; };
+		CBA1537A21FC6E19007DFB73 /* ConverterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1537921FC6E19007DFB73 /* ConverterPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		CBA1537321FC422B007DFB73 /* ConverterDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterDataProvider.swift; sourceTree = "<group>"; };
 		CBA1537521FC5182007DFB73 /* AmountValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountValidator.swift; sourceTree = "<group>"; };
 		CBA1537721FC6822007DFB73 /* AmountCompleter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountCompleter.swift; sourceTree = "<group>"; };
+		CBA1537921FC6E19007DFB73 /* ConverterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				CBA1537321FC422B007DFB73 /* ConverterDataProvider.swift */,
 				CBA1537521FC5182007DFB73 /* AmountValidator.swift */,
 				CBA1537721FC6822007DFB73 /* AmountCompleter.swift */,
+				CBA1537921FC6E19007DFB73 /* ConverterPresenter.swift */,
 			);
 			path = RevolutTestApplication;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			files = (
 				CBA1537621FC5182007DFB73 /* AmountValidator.swift in Sources */,
 				CBA1537821FC6822007DFB73 /* AmountCompleter.swift in Sources */,
+				CBA1537A21FC6E19007DFB73 /* ConverterPresenter.swift in Sources */,
 				CBA1537221FC3F4D007DFB73 /* CurrencyCell.swift in Sources */,
 				CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */,
 				CBA1536E21FA48A1007DFB73 /* ConverterViewController.swift in Sources */,
