@@ -16,6 +16,7 @@ class CurrencyCell: UITableViewCell {
     @IBOutlet weak var amountTextField: UITextField!
     
     static let amountValidator = AmountValidator()
+    static let amountCompleter = AmountCompleter()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -62,6 +63,7 @@ extension CurrencyCell: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.text = CurrencyCell.amountCompleter.complete(textField.text)
         amountTextField.isUserInteractionEnabled = false
     }
     
