@@ -15,6 +15,8 @@ class CurrencyCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var amountTextField: UITextField!
     
+    static let amountValidator = AmountValidator()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -48,6 +50,16 @@ class CurrencyCell: UITableViewCell {
 }
 
 extension CurrencyCell: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text, let range = Range(range, in: text) else {
+            return false
+        }
+        let newString = text.replacingCharacters(in: range, with: string)
+        let valid = CurrencyCell.amountValidator.isValid(newString)
+        
+        return valid
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         amountTextField.isUserInteractionEnabled = false
