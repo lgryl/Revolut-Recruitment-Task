@@ -31,6 +31,7 @@ class ConverterViewController: UIViewController {
         tableView.delegate = dataProvider
         tableView.dataSource = dataProvider
         
+        tableView.separatorStyle = .none
         tableView.rowHeight = 60.0
         
         let cellXib = UINib(nibName: String(describing: CurrencyCell.self), bundle: nil)
