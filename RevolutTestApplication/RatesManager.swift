@@ -9,7 +9,7 @@
 import Foundation
 
 class RatesManager {
-    let rates: [String: Decimal] = [
+    var rates: [String: Decimal] = [
         "AUD": 1.6111,
         "BGN": 1.9494,
         "BRL": 4.776,
@@ -62,6 +62,12 @@ class RatesManager {
         let euroToDestinationRate = rate(for: destinationCurrency)
         let finalRate = sourceToEuroRate * euroToDestinationRate
         return finalRate
+    }
+    
+    public func update(rates: [String: Decimal]) {
+        for (code, rate) in rates {
+            self.rates[code] = rate
+        }
     }
 }
 

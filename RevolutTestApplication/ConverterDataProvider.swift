@@ -11,12 +11,26 @@ import UIKit
 class ConverterDataProvider: NSObject {
     let ratesManager: RatesManager
     let amountsManager: AmountsManager
+    let ratesFetchService = RatesFetchService()
     
     override init() {
         ratesManager = RatesManager()
-         amountsManager = AmountsManager(ratesManager: ratesManager)
+        amountsManager = AmountsManager(ratesManager: ratesManager)
+        super.init()
+        
+        scheduleRatesFetch()
     }
 
+    private func scheduleRatesFetch() {
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [unowned self](_) in
+            self.ratesFetchService.fetchRates(completion: { (responseDTO) in
+                if let rates = responseDTO.rates {
+                    self.ratesManager.update(rates: rates)
+                }
+            })
+        }
+    }
+    
     private func reloadAllButSelectedRows(in tableView: UITableView, currentIndexPath: IndexPath) {
         if let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows {
             let indexPathsForAllButSelectedRows = indexPathsForVisibleRows.filter { (indexPath) -> Bool in
