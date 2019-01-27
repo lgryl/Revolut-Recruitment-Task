@@ -10,23 +10,7 @@ import Foundation
 
 class AmountsManager {
     private var amounts: [Amount] = [
-        Amount(currencyCode: "EUR", value: 0.0),
-        Amount(currencyCode: "AUD", value: 0.0),
-        Amount(currencyCode: "BGN", value: 0.0),
-        Amount(currencyCode: "BRL", value: 0.0),
-        Amount(currencyCode: "CAD", value: 0.0),
-        Amount(currencyCode: "CHF", value: 0.0),
-        Amount(currencyCode: "CNY", value: 0.0),
-        Amount(currencyCode: "CZK", value: 0.0),
-        Amount(currencyCode: "DKK", value: 0.0),
-        Amount(currencyCode: "GBP", value: 0.0),
-        Amount(currencyCode: "HKD", value: 0.0),
-        Amount(currencyCode: "HRK", value: 0.0),
-        Amount(currencyCode: "HUF", value: 0.0),
-        Amount(currencyCode: "IDR", value: 0.0),
-        Amount(currencyCode: "ILS", value: 0.0),
-        Amount(currencyCode: "INR", value: 0.0),
-        Amount(currencyCode: "ISK", value: 0.0)
+        Amount(currencyCode: RatesManager.baseCurrencyCode, value: 0.0)
     ]
     
     weak var ratesManager: RatesManager?
@@ -76,6 +60,15 @@ class AmountsManager {
                 if let baseAmount = amountFor(baseCurrency) {
                     amount.value = baseAmount.value * rate
                 }
+            }
+        }
+    }
+    
+    public func addNewCurrencies(from currencies: [String]) {
+        for currency in currencies {
+            if amountFor(currency) == nil {
+                let amount = Amount(currencyCode: currency, value: 0.0)
+                amounts.append(amount)
             }
         }
     }

@@ -51,6 +51,7 @@ class ConverterViewController: UIViewController, ConverterDisplayable {
         
         tableView.separatorStyle = .none
         tableView.rowHeight = ConverterViewController.rowHeight
+        tableView.estimatedRowHeight = ConverterViewController.rowHeight
         
         let cellXib = UINib(nibName: String(describing: CurrencyCell.self), bundle: nil)
         tableView.register(cellXib, forCellReuseIdentifier: ConverterViewController.cellIdentifier)

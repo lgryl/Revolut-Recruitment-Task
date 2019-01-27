@@ -23,13 +23,24 @@ class ConverterDataProvider: NSObject {
     }
     
     func update() {
-        if let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows {
+        if tableView.numberOfRows(inSection: 0) < amountsManager.amountsCount {
+            addMissingRows()
+        } else if let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows {
             let exceptionIndexPath = IndexPath(row: 0, section: 0)
             let indexPathsForAllButSelectedRows = indexPathsForVisibleRows.filter { (indexPath) -> Bool in
                 indexPath != exceptionIndexPath
             }
             tableView.reloadRows(at: indexPathsForAllButSelectedRows, with: .none)
         }
+    }
+    
+    private func addMissingRows() {
+        var indexPaths = [IndexPath]()
+        for i in tableView.numberOfRows(inSection: 0) ..< amountsManager.amountsCount {
+            let indexPath = IndexPath(row: i, section: 0)
+            indexPaths.append(indexPath)
+        }
+        tableView.insertRows(at: indexPaths, with: .none)
     }
 }
 

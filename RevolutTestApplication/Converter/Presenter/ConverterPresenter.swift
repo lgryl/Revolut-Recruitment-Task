@@ -30,6 +30,7 @@ class ConverterPresenter {
             self.ratesFetchService.fetchRates(completion: { [unowned self](responseDTO) in
                 if let rates = responseDTO.rates {
                     self.ratesManager.update(rates: rates)
+                    self.amountsManager.addNewCurrencies(from: Array(rates.keys))
                     self.amountsManager.update(baseCurrency: self.dataProvider.lastEditedCurrencyCode)
                     self.dataProvider.update()
                 }
