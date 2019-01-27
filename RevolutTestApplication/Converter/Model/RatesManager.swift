@@ -51,18 +51,19 @@ class RatesManager {
         guard currencyCode != RatesManager.baseCurrencyCode else {
             return 1
         }
-        return rates[currencyCode] ?? 1
+        return rates[currencyCode] ?? 0
     }
     
     public func rate(from sourceCurrency: String, to destinationCurrency: String) -> Decimal {
-        if sourceCurrency == RatesManager.baseCurrencyCode {
-            return rate(for: destinationCurrency)
-        }
-        if destinationCurrency == RatesManager.baseCurrencyCode {
-            return 1 / rate(for: sourceCurrency)
-        }
         let sourceToEuroRate = 1 / rate(for: sourceCurrency)
         let euroToDestinationRate = rate(for: destinationCurrency)
+        
+        if sourceCurrency == RatesManager.baseCurrencyCode {
+            return euroToDestinationRate
+        }
+        if destinationCurrency == RatesManager.baseCurrencyCode {
+            return sourceToEuroRate
+        }
         let finalRate = sourceToEuroRate * euroToDestinationRate
         return finalRate
     }
