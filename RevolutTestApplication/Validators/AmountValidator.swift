@@ -10,11 +10,11 @@ import Foundation
 
 class AmountValidator {
     
-    static var regularExpression: NSRegularExpression? {
+    static var regularExpression: NSRegularExpression? = {
         let pattern = "^((0|([1-9]\\d{0,6}))(\(LocaleHelper.escapedDecimalSeparator)\\d{0,2})?)?$"
         let regularExpression = try? NSRegularExpression(pattern: pattern, options: [])
         return regularExpression
-    }
+    }()
     
     func isValid(_ amount: String) -> Bool {
         let range = NSRange(location: 0, length: amount.count)

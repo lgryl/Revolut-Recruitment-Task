@@ -10,41 +10,49 @@ import Foundation
 
 class AmountCompleter {
     
-    static let digitPattern = "^\\d*$"
-    static let separatorPattern = "^\\d*\(LocaleHelper.escapedDecimalSeparator)$"
-    static let separatorAndDigitPattern = "^\\d*\(LocaleHelper.escapedDecimalSeparator)\\d$"
+    static let digitRegularExpression: NSRegularExpression? = {
+        let trailingDigitPattern = "^\\d*$"
+        let trailingDigitRegularExpression = try? NSRegularExpression(pattern: trailingDigitPattern, options: [])
+        return trailingDigitRegularExpression
+    }()
     
-    let digitRegularExpression: NSRegularExpression?
-    let separatorRegularExpression: NSRegularExpression?
-    let separatorAndDigitRegularExpression: NSRegularExpression?
-    
-    init() {
-        digitRegularExpression = try? NSRegularExpression(pattern: AmountCompleter.digitPattern, options: [])
-        separatorRegularExpression = try? NSRegularExpression(pattern: AmountCompleter.separatorPattern, options: [])
-        separatorAndDigitRegularExpression = try? NSRegularExpression(pattern: AmountCompleter.separatorAndDigitPattern, options: [])
-    }
+    static let separatorRegularExpression: NSRegularExpression? = {
+        let trailingSeparatorPattern = "^\\d*\(LocaleHelper.escapedDecimalSeparator)$"
+        let trailingSeparatorRegularExpression = try? NSRegularExpression(pattern: trailingSeparatorPattern, options: [])
+        return trailingSeparatorRegularExpression
+
+    }()
+    static let trailingSeparatorAndDigitRegularExpression: NSRegularExpression? = {
+        let separatorAndDigitPattern = "^\\d*\(LocaleHelper.escapedDecimalSeparator)\\d$"
+        let separatorAndDigitRegularExpression = try? NSRegularExpression(pattern: separatorAndDigitPattern, options: [])
+        return separatorAndDigitRegularExpression
+    }()
     
     func complete(_ amount: String?) -> String? {
         guard let amount = amount else {
             return nil
         }
-        let range = NSRange(location: 0, length: amount.count)
 
         if amount.count == 0 {
             return "0" + LocaleHelper.decimalSeparator + "00"
         }
-        if separatorAndDigitRegularExpression?.numberOfMatches(in: amount, options: [], range: range) == 1 {
+        if string(amount, matches: AmountCompleter.trailingSeparatorAndDigitRegularExpression) {
             return amount + "0"
         }
-        if separatorRegularExpression?.numberOfMatches(in: amount, options: [], range: range) == 1 {
+        if string(amount, matches: AmountCompleter.separatorRegularExpression) {
             return amount + "00"
         }
-        if digitRegularExpression?.numberOfMatches(in: amount, options: [], range: range) == 1 {
+        if string(amount, matches: AmountCompleter.digitRegularExpression) {
             return amount + LocaleHelper.decimalSeparator + "00"
         }
         
-        
         return amount
+    }
+    
+    private func string(_ string: String, matches regularExpression: NSRegularExpression?) -> Bool {
+        let range = NSRange(location: 0, length: string.count)
+        let matches = regularExpression?.numberOfMatches(in: string, options: [], range: range) == 1
+        return matches
     }
     
 }
