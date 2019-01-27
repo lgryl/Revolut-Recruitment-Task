@@ -15,6 +15,7 @@ protocol ConverterDisplayable: class {
 class ConverterViewController: UIViewController, ConverterDisplayable {
     
     static let cellIdentifier = "CurrencyCell"
+    static let rowHeight: CGFloat = 60.0
     
     let tableView = UITableView()
     
@@ -49,20 +50,11 @@ class ConverterViewController: UIViewController, ConverterDisplayable {
         tableView.dataSource = dataProvider
         
         tableView.separatorStyle = .none
-        tableView.rowHeight = 60.0
+        tableView.rowHeight = ConverterViewController.rowHeight
         
         let cellXib = UINib(nibName: String(describing: CurrencyCell.self), bundle: nil)
         tableView.register(cellXib, forCellReuseIdentifier: ConverterViewController.cellIdentifier)
         
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(tableView)
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
-            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: tableView.bottomAnchor)
-            ])
+        addTableViewAsSubview()
     }
-    
 }
