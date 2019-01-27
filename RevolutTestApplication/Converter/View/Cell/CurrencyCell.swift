@@ -33,11 +33,11 @@ class CurrencyCell: UITableViewCell {
     var valueChangedAction: ((String, Decimal) -> ())?
     var beginEditAction: ((String) -> ())?
     
-    var value: Decimal? {
+    var value: Decimal {
         if let text = amountTextField.text, text.count > 0, let value = Decimal(string: text, locale: Locale.current) {
             return value
         } else {
-            return nil
+            return Decimal(integerLiteral: 0)
         }
     }
     
@@ -87,7 +87,7 @@ class CurrencyCell: UITableViewCell {
     }
     
     fileprivate func sendValueChangedActionEvent() {
-        if let value = value, let valueChangedAction = valueChangedAction {
+        if let valueChangedAction = valueChangedAction {
             valueChangedAction(currencyCode, value)
         }
     }
