@@ -11,8 +11,8 @@ import Foundation
 class AmountCompleter {
     
     static let digitPattern = "^\\d*$"
-    static let separatorPattern = "^\\d*\(AmountValidator.escapedDecimalSeparator)$"
-    static let separatorAndDigitPattern = "^\\d*\(AmountValidator.escapedDecimalSeparator)\\d$"
+    static let separatorPattern = "^\\d*\(LocaleHelper.escapedDecimalSeparator)$"
+    static let separatorAndDigitPattern = "^\\d*\(LocaleHelper.escapedDecimalSeparator)\\d$"
     
     let digitRegularExpression: NSRegularExpression?
     let separatorRegularExpression: NSRegularExpression?
@@ -31,7 +31,7 @@ class AmountCompleter {
         let range = NSRange(location: 0, length: amount.count)
 
         if amount.count == 0 {
-            return "0" + AmountValidator.decimalSeparator + "00"
+            return "0" + LocaleHelper.decimalSeparator + "00"
         }
         if separatorAndDigitRegularExpression?.numberOfMatches(in: amount, options: [], range: range) == 1 {
             return amount + "0"
@@ -40,7 +40,7 @@ class AmountCompleter {
             return amount + "00"
         }
         if digitRegularExpression?.numberOfMatches(in: amount, options: [], range: range) == 1 {
-            return amount + AmountValidator.decimalSeparator + "00"
+            return amount + LocaleHelper.decimalSeparator + "00"
         }
         
         

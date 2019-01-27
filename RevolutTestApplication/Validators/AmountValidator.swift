@@ -10,20 +10,7 @@ import Foundation
 
 class AmountValidator {
     
-    static var decimalSeparator: String {
-        let separator = Locale.current.decimalSeparator ?? "."
-        return separator
-    }
-    
-    static var escapedDecimalSeparator: String {
-        var separator = AmountValidator.decimalSeparator
-        if separator == "." {
-            separator = "\\."
-        }
-        return separator
-    }
-    
-    static let pattern = "^((0|([1-9]\\d{0,6}))(\(AmountValidator.escapedDecimalSeparator)\\d{0,2})?)?$"
+    static let pattern = "^((0|([1-9]\\d{0,6}))(\(LocaleHelper.escapedDecimalSeparator)\\d{0,2})?)?$"
     let regularExpression: NSRegularExpression?
     
     init() {

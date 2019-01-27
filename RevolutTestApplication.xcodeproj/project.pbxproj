@@ -14,6 +14,7 @@
 		CB6A32CB21FCCB8000F7EB25 /* RatesResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32CA21FCCB8000F7EB25 /* RatesResponseDTO.swift */; };
 		CB6A32CD21FDC2AA00F7EB25 /* ConverterViewControllerSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32CC21FDC2AA00F7EB25 /* ConverterViewControllerSubviews.swift */; };
 		CB6A32CF21FDC33B00F7EB25 /* UIViewHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32CE21FDC33B00F7EB25 /* UIViewHelperMethods.swift */; };
+		CB6A32D921FDDC9C00F7EB25 /* LocaleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32D821FDDC9C00F7EB25 /* LocaleHelper.swift */; };
 		CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1534D21FA4779007DFB73 /* AppDelegate.swift */; };
 		CBA1535521FA477B007DFB73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535421FA477B007DFB73 /* Assets.xcassets */; };
 		CBA1535821FA477B007DFB73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */; };
@@ -47,6 +48,7 @@
 		CB6A32CA21FCCB8000F7EB25 /* RatesResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesResponseDTO.swift; sourceTree = "<group>"; };
 		CB6A32CC21FDC2AA00F7EB25 /* ConverterViewControllerSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewControllerSubviews.swift; sourceTree = "<group>"; };
 		CB6A32CE21FDC33B00F7EB25 /* UIViewHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewHelperMethods.swift; sourceTree = "<group>"; };
+		CB6A32D821FDDC9C00F7EB25 /* LocaleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleHelper.swift; sourceTree = "<group>"; };
 		CBA1534A21FA4778007DFB73 /* RevolutTestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutTestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA1534D21FA4779007DFB73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBA1535421FA477B007DFB73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				CB6A32CE21FDC33B00F7EB25 /* UIViewHelperMethods.swift */,
+				CB6A32D821FDDC9C00F7EB25 /* LocaleHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				CB6A32CF21FDC33B00F7EB25 /* UIViewHelperMethods.swift in Sources */,
 				CBA1536E21FA48A1007DFB73 /* ConverterViewController.swift in Sources */,
 				CB6A32C321FCCA8A00F7EB25 /* RatesFetchService.swift in Sources */,
+				CB6A32D921FDDC9C00F7EB25 /* LocaleHelper.swift in Sources */,
 				CBA1537421FC422B007DFB73 /* ConverterDataProvider.swift in Sources */,
 				CB6A32CB21FCCB8000F7EB25 /* RatesResponseDTO.swift in Sources */,
 			);
