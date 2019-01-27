@@ -74,7 +74,7 @@ class CurrencyCell: UITableViewCell {
         symbolLabel.text = amount.currencyCode
         nameLabel.text = amount.currencyCode.localized()
         
-        let flagImage = UIImage(named: "eu")
+        let flagImage = UIImage(named: amount.currencyCode)
         flagImageView.image = flagImage
     }
     
