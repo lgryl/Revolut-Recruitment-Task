@@ -1,14 +1,14 @@
 //
-//  RatesFetchService.swift
+//  FakeRatesFetchService.swift
 //  RevolutTestApplication
 //
-//  Created by lg on 26/01/2019.
+//  Created by lg on 27/01/2019.
 //  Copyright © 2019 lg. All rights reserved.
 //
 
 import Foundation
 
-class RatesFetchService {
+class FakeRatesFetchService: RatesFetchService {
     
     func fetchRates(completion: ((RatesResponseDTO) -> ())) {
         let randomNumber = arc4random_uniform(3) + 1
@@ -20,10 +20,6 @@ class RatesFetchService {
             } catch {
                 // TODO
             }
-        }
-        
-        
-        
+        }   
     }
-    
 }

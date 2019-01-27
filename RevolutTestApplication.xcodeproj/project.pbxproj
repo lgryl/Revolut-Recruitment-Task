@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CB6A32C321FCCA8A00F7EB25 /* RatesFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32C221FCCA8A00F7EB25 /* RatesFetchService.swift */; };
 		CB6A32C721FCCACF00F7EB25 /* rates-03.json in Resources */ = {isa = PBXBuildFile; fileRef = CB6A32C421FCCACE00F7EB25 /* rates-03.json */; };
 		CB6A32C821FCCACF00F7EB25 /* rates-01.json in Resources */ = {isa = PBXBuildFile; fileRef = CB6A32C521FCCACF00F7EB25 /* rates-01.json */; };
 		CB6A32C921FCCACF00F7EB25 /* rates-02.json in Resources */ = {isa = PBXBuildFile; fileRef = CB6A32C621FCCACF00F7EB25 /* rates-02.json */; };
@@ -15,6 +14,9 @@
 		CB6A32CD21FDC2AA00F7EB25 /* ConverterViewControllerSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32CC21FDC2AA00F7EB25 /* ConverterViewControllerSubviews.swift */; };
 		CB6A32CF21FDC33B00F7EB25 /* UIViewHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32CE21FDC33B00F7EB25 /* UIViewHelperMethods.swift */; };
 		CB6A32D921FDDC9C00F7EB25 /* LocaleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32D821FDDC9C00F7EB25 /* LocaleHelper.swift */; };
+		CB6A32DB21FE176B00F7EB25 /* FakeRatesFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32DA21FE176B00F7EB25 /* FakeRatesFetchService.swift */; };
+		CB6A32DD21FE17E500F7EB25 /* RatesFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32C221FCCA8A00F7EB25 /* RatesFetchService.swift */; };
+		CB6A32DF21FE180D00F7EB25 /* ApiRatesFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32DE21FE180D00F7EB25 /* ApiRatesFetchService.swift */; };
 		CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1534D21FA4779007DFB73 /* AppDelegate.swift */; };
 		CBA1535521FA477B007DFB73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535421FA477B007DFB73 /* Assets.xcassets */; };
 		CBA1535821FA477B007DFB73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */; };
@@ -49,6 +51,8 @@
 		CB6A32CC21FDC2AA00F7EB25 /* ConverterViewControllerSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewControllerSubviews.swift; sourceTree = "<group>"; };
 		CB6A32CE21FDC33B00F7EB25 /* UIViewHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewHelperMethods.swift; sourceTree = "<group>"; };
 		CB6A32D821FDDC9C00F7EB25 /* LocaleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleHelper.swift; sourceTree = "<group>"; };
+		CB6A32DA21FE176B00F7EB25 /* FakeRatesFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRatesFetchService.swift; sourceTree = "<group>"; };
+		CB6A32DE21FE180D00F7EB25 /* ApiRatesFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRatesFetchService.swift; sourceTree = "<group>"; };
 		CBA1534A21FA4778007DFB73 /* RevolutTestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutTestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA1534D21FA4779007DFB73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBA1535421FA477B007DFB73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,8 +96,8 @@
 				CB6A32D321FDC41E00F7EB25 /* Presenter */,
 				CB6A32D221FDC41A00F7EB25 /* Model */,
 				CB6A32D121FDC40E00F7EB25 /* View */,
+				CB6A32DC21FE177200F7EB25 /* Services */,
 				CBA1537321FC422B007DFB73 /* ConverterDataProvider.swift */,
-				CB6A32C221FCCA8A00F7EB25 /* RatesFetchService.swift */,
 			);
 			path = Converter;
 			sourceTree = "<group>";
@@ -163,6 +167,16 @@
 				CB6A32C421FCCACE00F7EB25 /* rates-03.json */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		CB6A32DC21FE177200F7EB25 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CB6A32C221FCCA8A00F7EB25 /* RatesFetchService.swift */,
+				CB6A32DA21FE176B00F7EB25 /* FakeRatesFetchService.swift */,
+				CB6A32DE21FE180D00F7EB25 /* ApiRatesFetchService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		CBA1534121FA4778007DFB73 = {
@@ -309,6 +323,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB6A32DD21FE17E500F7EB25 /* RatesFetchService.swift in Sources */,
+				CB6A32DB21FE176B00F7EB25 /* FakeRatesFetchService.swift in Sources */,
 				CBA1537E21FC8A4D007DFB73 /* RatesManager.swift in Sources */,
 				CBA1537621FC5182007DFB73 /* AmountValidator.swift in Sources */,
 				CBA1537C21FC7400007DFB73 /* AmountsManager.swift in Sources */,
@@ -316,10 +332,10 @@
 				CBA1537821FC6822007DFB73 /* AmountCompleter.swift in Sources */,
 				CBA1537A21FC6E19007DFB73 /* ConverterPresenter.swift in Sources */,
 				CBA1537221FC3F4D007DFB73 /* CurrencyCell.swift in Sources */,
+				CB6A32DF21FE180D00F7EB25 /* ApiRatesFetchService.swift in Sources */,
 				CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */,
 				CB6A32CF21FDC33B00F7EB25 /* UIViewHelperMethods.swift in Sources */,
 				CBA1536E21FA48A1007DFB73 /* ConverterViewController.swift in Sources */,
-				CB6A32C321FCCA8A00F7EB25 /* RatesFetchService.swift in Sources */,
 				CB6A32D921FDDC9C00F7EB25 /* LocaleHelper.swift in Sources */,
 				CBA1537421FC422B007DFB73 /* ConverterDataProvider.swift in Sources */,
 				CB6A32CB21FCCB8000F7EB25 /* RatesResponseDTO.swift in Sources */,

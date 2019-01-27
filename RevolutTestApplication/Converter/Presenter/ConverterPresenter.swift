@@ -11,7 +11,7 @@ import Foundation
 class ConverterPresenter {
     weak var viewController: ConverterDisplayable!
     let dataProvider: ConverterDataProvider
-    let ratesFetchService = RatesFetchService()
+    let ratesFetchService = FakeRatesFetchService()
     let ratesManager: RatesManager
     let amountsManager: AmountsManager
     
