@@ -21,9 +21,9 @@ class ConverterViewController: UIViewController, ConverterDisplayable {
     let dataProvider: ConverterDataProvider
     let presenter: ConverterPresenter
     
-    init(dataProvider: ConverterDataProvider, presenter: ConverterPresenter) {
-        self.dataProvider = dataProvider
+    init(presenter: ConverterPresenter) {
         self.presenter = presenter
+        self.dataProvider = presenter.dataProvider
         super.init(nibName: nil, bundle: nil)
     }
     

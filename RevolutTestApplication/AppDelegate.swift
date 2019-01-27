@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let amountsManager = AmountsManager()
         let dataProvider = ConverterDataProvider()
         let presenter = ConverterPresenter(dataProvider: dataProvider, ratesManager: ratesManager, amountsManager: amountsManager)
-        let initialViewController = ConverterViewController(dataProvider: dataProvider, presenter: presenter)
+        let initialViewController = ConverterViewController(presenter: presenter)
         presenter.viewController = initialViewController
         
         window?.rootViewController = initialViewController
