@@ -21,8 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
+        let ratesManager = RatesManager()
+        let amountsManager = AmountsManager()
         let dataProvider = ConverterDataProvider()
-        let presenter = ConverterPresenter(dataProvider: dataProvider)
+        let presenter = ConverterPresenter(dataProvider: dataProvider, ratesManager: ratesManager, amountsManager: amountsManager)
         let initialViewController = ConverterViewController(dataProvider: dataProvider, presenter: presenter)
         presenter.viewController = initialViewController
         

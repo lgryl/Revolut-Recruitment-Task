@@ -9,27 +9,9 @@
 import UIKit
 
 class ConverterDataProvider: NSObject {
-    let ratesManager: RatesManager
-    let amountsManager: AmountsManager
-    let ratesFetchService = RatesFetchService()
-    
-    override init() {
-        ratesManager = RatesManager()
-        amountsManager = AmountsManager(ratesManager: ratesManager)
-        super.init()
-        
-        scheduleRatesFetch()
-    }
-
-    private func scheduleRatesFetch() {
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [unowned self](_) in
-            self.ratesFetchService.fetchRates(completion: { (responseDTO) in
-                if let rates = responseDTO.rates {
-                    self.ratesManager.update(rates: rates)
-                }
-            })
-        }
-    }
+    weak var amountsManager: AmountsManager!
+    var lastEditedCurrencyCode = "EUR"
+    var tableView: UITableView!
     
     private func reloadAllButSelectedRows(in tableView: UITableView, currentIndexPath: IndexPath) {
         if let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows {
@@ -38,6 +20,21 @@ class ConverterDataProvider: NSObject {
             }
             tableView.reloadRows(at: indexPathsForAllButSelectedRows, with: .none)
         }
+    }
+    
+    func update() {
+        update(exceptionCurrencyCode: lastEditedCurrencyCode)
+    }
+    
+    func update(exceptionCurrencyCode: String) {
+        if let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows, let exceptionIndex = amountsManager.index(of: exceptionCurrencyCode) {
+            let exceptionIndexPath = IndexPath(row: 0, section: 0)
+            let indexPathsForAllButSelectedRows = indexPathsForVisibleRows.filter { (indexPath) -> Bool in
+                indexPath != exceptionIndexPath
+            }
+            tableView.reloadRows(at: indexPathsForAllButSelectedRows, with: .none)
+        }
+
     }
     
 }
@@ -54,6 +51,9 @@ extension ConverterDataProvider: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ConverterViewController.cellIdentifier) as? CurrencyCell else {
             fatalError()
+        }
+        cell.beginEditAction = { [unowned self] (currencyCode) in
+            self.lastEditedCurrencyCode = currencyCode
         }
         cell.valueChangedAction = { [unowned self] (currencyCode, value) in
             self.amountsManager.set(value, for: currencyCode)

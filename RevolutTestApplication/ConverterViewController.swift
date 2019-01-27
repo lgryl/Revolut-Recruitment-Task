@@ -44,6 +44,7 @@ class ConverterViewController: UIViewController, ConverterDisplayable {
     }
     
     private func setupTableView() {
+        dataProvider.tableView = tableView
         tableView.delegate = dataProvider
         tableView.dataSource = dataProvider
         
