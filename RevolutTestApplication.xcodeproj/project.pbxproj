@@ -51,7 +51,7 @@
 		CBA1534D21FA4779007DFB73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBA1535421FA477B007DFB73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBA1535721FA477B007DFB73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CBA1535921FA477B007DFB73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBA1535921FA477B007DFB73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = RevolutTestApplication/Info.plist; sourceTree = "<group>"; };
 		CBA1535E21FA477B007DFB73 /* RevolutTestApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevolutTestApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA1536221FA477B007DFB73 /* RevolutTestApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutTestApplicationTests.swift; sourceTree = "<group>"; };
 		CBA1536421FA477B007DFB73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,9 +84,88 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB6A32D021FDC40800F7EB25 /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				CB6A32D321FDC41E00F7EB25 /* Presenter */,
+				CB6A32D221FDC41A00F7EB25 /* Model */,
+				CB6A32D121FDC40E00F7EB25 /* View */,
+				CBA1537321FC422B007DFB73 /* ConverterDataProvider.swift */,
+				CB6A32C221FCCA8A00F7EB25 /* RatesFetchService.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		CB6A32D121FDC40E00F7EB25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */,
+				CB6A32CC21FDC2AA00F7EB25 /* ConverterViewControllerSubviews.swift */,
+				CB6A32D421FDC44C00F7EB25 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB6A32D221FDC41A00F7EB25 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBA1537B21FC7400007DFB73 /* AmountsManager.swift */,
+				CBA1537D21FC8A4D007DFB73 /* RatesManager.swift */,
+				CB6A32CA21FCCB8000F7EB25 /* RatesResponseDTO.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB6A32D321FDC41E00F7EB25 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CBA1537921FC6E19007DFB73 /* ConverterPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CB6A32D421FDC44C00F7EB25 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CBA1536F21FC3D97007DFB73 /* CurrencyCell.xib */,
+				CBA1537121FC3F4D007DFB73 /* CurrencyCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CB6A32D521FDC49200F7EB25 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				CBA1537521FC5182007DFB73 /* AmountValidator.swift */,
+				CBA1537721FC6822007DFB73 /* AmountCompleter.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		CB6A32D621FDC4E100F7EB25 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CB6A32CE21FDC33B00F7EB25 /* UIViewHelperMethods.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CB6A32D721FDC50900F7EB25 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CBA1535421FA477B007DFB73 /* Assets.xcassets */,
+				CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */,
+				CB6A32C521FCCACF00F7EB25 /* rates-01.json */,
+				CB6A32C621FCCACF00F7EB25 /* rates-02.json */,
+				CB6A32C421FCCACE00F7EB25 /* rates-03.json */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		CBA1534121FA4778007DFB73 = {
 			isa = PBXGroup;
 			children = (
+				CBA1535921FA477B007DFB73 /* Info.plist */,
 				CBA1534C21FA4778007DFB73 /* RevolutTestApplication */,
 				CBA1536121FA477B007DFB73 /* RevolutTestApplicationTests */,
 				CBA1534B21FA4778007DFB73 /* Products */,
@@ -106,25 +185,10 @@
 			isa = PBXGroup;
 			children = (
 				CBA1534D21FA4779007DFB73 /* AppDelegate.swift */,
-				CBA1535421FA477B007DFB73 /* Assets.xcassets */,
-				CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */,
-				CBA1535921FA477B007DFB73 /* Info.plist */,
-				CBA1536D21FA48A1007DFB73 /* ConverterViewController.swift */,
-				CB6A32CC21FDC2AA00F7EB25 /* ConverterViewControllerSubviews.swift */,
-				CBA1536F21FC3D97007DFB73 /* CurrencyCell.xib */,
-				CBA1537121FC3F4D007DFB73 /* CurrencyCell.swift */,
-				CBA1537321FC422B007DFB73 /* ConverterDataProvider.swift */,
-				CBA1537521FC5182007DFB73 /* AmountValidator.swift */,
-				CBA1537721FC6822007DFB73 /* AmountCompleter.swift */,
-				CBA1537921FC6E19007DFB73 /* ConverterPresenter.swift */,
-				CBA1537B21FC7400007DFB73 /* AmountsManager.swift */,
-				CBA1537D21FC8A4D007DFB73 /* RatesManager.swift */,
-				CB6A32C221FCCA8A00F7EB25 /* RatesFetchService.swift */,
-				CB6A32C521FCCACF00F7EB25 /* rates-01.json */,
-				CB6A32C621FCCACF00F7EB25 /* rates-02.json */,
-				CB6A32C421FCCACE00F7EB25 /* rates-03.json */,
-				CB6A32CA21FCCB8000F7EB25 /* RatesResponseDTO.swift */,
-				CB6A32CE21FDC33B00F7EB25 /* UIViewHelperMethods.swift */,
+				CB6A32D021FDC40800F7EB25 /* Converter */,
+				CB6A32D521FDC49200F7EB25 /* Validators */,
+				CB6A32D621FDC4E100F7EB25 /* Helpers */,
+				CB6A32D721FDC50900F7EB25 /* Assets */,
 			);
 			path = RevolutTestApplication;
 			sourceTree = "<group>";
