@@ -35,10 +35,6 @@ class AmountsManager {
         return amounts.count
     }
     
-    init(ratesManager: RatesManager) {
-        self.ratesManager = ratesManager
-    }
-    
     public func amount(at index: Int) -> Amount {
         return amounts[index]
     }
@@ -52,6 +48,15 @@ class AmountsManager {
         return nil
     }
     
+    public func amountFor(_ code: String) -> Amount? {
+        for amount in amounts {
+            if amount.currencyCode == code {
+                return amount
+            }
+        }
+        return nil
+    }
+    
     public func set(_ value: Decimal, for currencyCode: String) {
         for amount in amounts {
             if currencyCode == amount.currencyCode {
@@ -60,6 +65,17 @@ class AmountsManager {
                 if let ratesManager = ratesManager {
                     let rate = ratesManager.rate(from: currencyCode, to: amount.currencyCode)
                     amount.value = value * rate
+                }
+            }
+        }
+    }
+    
+    public func update(baseCurrency: String = "EUR") {
+        for amount in amounts {
+            if amount.currencyCode != baseCurrency, let ratesManager = ratesManager {
+                let rate = ratesManager.rate(from: baseCurrency, to: amount.currencyCode)
+                if let baseAmount = amountFor(baseCurrency) {
+                    amount.value = baseAmount.value * rate
                 }
             }
         }

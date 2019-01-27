@@ -32,6 +32,7 @@ class CurrencyCell: UITableViewCell {
     
     var currencyCode: String = ""
     var valueChangedAction: ((String, Decimal) -> ())?
+    var beginEditAction: ((String) -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -96,11 +97,15 @@ extension CurrencyCell: UITextFieldDelegate {
         return valid
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let beginEditAction = beginEditAction {
+            beginEditAction(currencyCode)
+        }
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.text = CurrencyCell.amountCompleter.complete(textField.text)
         amountTextField.isUserInteractionEnabled = false
-        
-//        sendValueChangedActionEvent()
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
