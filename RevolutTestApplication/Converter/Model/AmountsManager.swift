@@ -61,18 +61,17 @@ class AmountsManager {
         for amount in amounts {
             if currencyCode == amount.currencyCode {
                 amount.value = value
-            } else {
-                if let ratesManager = ratesManager {
-                    let rate = ratesManager.rate(from: currencyCode, to: amount.currencyCode)
-                    amount.value = value * rate
-                }
             }
         }
+        update(baseCurrency: currencyCode)
     }
     
-    public func update(baseCurrency: String = "EUR") {
+    public func update(baseCurrency: String = RatesManager.baseCurrencyCode) {
+        guard let ratesManager = ratesManager else {
+            return
+        }
         for amount in amounts {
-            if amount.currencyCode != baseCurrency, let ratesManager = ratesManager {
+            if amount.currencyCode != baseCurrency {
                 let rate = ratesManager.rate(from: baseCurrency, to: amount.currencyCode)
                 if let baseAmount = amountFor(baseCurrency) {
                     amount.value = baseAmount.value * rate

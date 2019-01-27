@@ -10,33 +10,27 @@ import UIKit
 
 class ConverterDataProvider: NSObject {
     weak var amountsManager: AmountsManager!
-    var lastEditedCurrencyCode = "EUR"
+    var lastEditedCurrencyCode = RatesManager.baseCurrencyCode
     var tableView: UITableView!
     
-    private func reloadAllButSelectedRows(in tableView: UITableView, currentIndexPath: IndexPath) {
+    private func reloadAllRowsExceptOne(with indexPathToExclude: IndexPath) {
         if let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows {
             let indexPathsForAllButSelectedRows = indexPathsForVisibleRows.filter { (indexPath) -> Bool in
-                indexPath != currentIndexPath
+                indexPath != indexPathToExclude
             }
             tableView.reloadRows(at: indexPathsForAllButSelectedRows, with: .none)
         }
     }
     
     func update() {
-        update(exceptionCurrencyCode: lastEditedCurrencyCode)
-    }
-    
-    func update(exceptionCurrencyCode: String) {
-        if let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows, let exceptionIndex = amountsManager.index(of: exceptionCurrencyCode) {
+        if let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows {
             let exceptionIndexPath = IndexPath(row: 0, section: 0)
             let indexPathsForAllButSelectedRows = indexPathsForVisibleRows.filter { (indexPath) -> Bool in
                 indexPath != exceptionIndexPath
             }
             tableView.reloadRows(at: indexPathsForAllButSelectedRows, with: .none)
         }
-
     }
-    
 }
 
 extension ConverterDataProvider: UITableViewDataSource {
@@ -59,7 +53,7 @@ extension ConverterDataProvider: UITableViewDataSource {
             self.amountsManager.set(value, for: currencyCode)
             if let currentIndex = self.amountsManager.index(of: currencyCode) {
                 let currentIndexPath = IndexPath(row: 0, section: currentIndex)
-                self.reloadAllButSelectedRows(in: tableView, currentIndexPath: currentIndexPath)
+                self.reloadAllRowsExceptOne(with: currentIndexPath  )
             }
         }
         
@@ -83,7 +77,11 @@ extension ConverterDataProvider: UITableViewDelegate {
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        scrollView.endEditing(true)
+        hideKeyboard()
+    }
+    
+    private func hideKeyboard() {
+        tableView.endEditing(true)
     }
     
 }

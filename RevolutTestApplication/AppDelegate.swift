@@ -13,7 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    private var initialViewController: UIViewController {
+        let ratesManager = RatesManager()
+        let amountsManager = AmountsManager()
+        let dataProvider = ConverterDataProvider()
+        let presenter = ConverterPresenter(dataProvider: dataProvider, ratesManager: ratesManager, amountsManager: amountsManager)
+        let converterViewController = ConverterViewController(presenter: presenter)
+        presenter.viewController = converterViewController
+        
+        return converterViewController
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupWindow()
         return true
@@ -21,12 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let ratesManager = RatesManager()
-        let amountsManager = AmountsManager()
-        let dataProvider = ConverterDataProvider()
-        let presenter = ConverterPresenter(dataProvider: dataProvider, ratesManager: ratesManager, amountsManager: amountsManager)
-        let initialViewController = ConverterViewController(dataProvider: dataProvider, presenter: presenter)
-        presenter.viewController = initialViewController
         
         window?.rootViewController = initialViewController
         window?.makeKeyAndVisible()
