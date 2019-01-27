@@ -17,6 +17,7 @@
 		CB6A32DB21FE176B00F7EB25 /* FakeRatesFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32DA21FE176B00F7EB25 /* FakeRatesFetchService.swift */; };
 		CB6A32DD21FE17E500F7EB25 /* RatesFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32C221FCCA8A00F7EB25 /* RatesFetchService.swift */; };
 		CB6A32DF21FE180D00F7EB25 /* ApiRatesFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32DE21FE180D00F7EB25 /* ApiRatesFetchService.swift */; };
+		CB6A32E221FE18A700F7EB25 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A32E121FE18A700F7EB25 /* NetworkProvider.swift */; };
 		CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1534D21FA4779007DFB73 /* AppDelegate.swift */; };
 		CBA1535521FA477B007DFB73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535421FA477B007DFB73 /* Assets.xcassets */; };
 		CBA1535821FA477B007DFB73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA1535621FA477B007DFB73 /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 		CB6A32D821FDDC9C00F7EB25 /* LocaleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleHelper.swift; sourceTree = "<group>"; };
 		CB6A32DA21FE176B00F7EB25 /* FakeRatesFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRatesFetchService.swift; sourceTree = "<group>"; };
 		CB6A32DE21FE180D00F7EB25 /* ApiRatesFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRatesFetchService.swift; sourceTree = "<group>"; };
+		CB6A32E121FE18A700F7EB25 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		CBA1534A21FA4778007DFB73 /* RevolutTestApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutTestApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA1534D21FA4779007DFB73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBA1535421FA477B007DFB73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -179,6 +181,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		CB6A32E021FE189500F7EB25 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CB6A32E121FE18A700F7EB25 /* NetworkProvider.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		CBA1534121FA4778007DFB73 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +213,7 @@
 			children = (
 				CBA1534D21FA4779007DFB73 /* AppDelegate.swift */,
 				CB6A32D021FDC40800F7EB25 /* Converter */,
+				CB6A32E021FE189500F7EB25 /* Network */,
 				CB6A32D521FDC49200F7EB25 /* Validators */,
 				CB6A32D621FDC4E100F7EB25 /* Helpers */,
 				CB6A32D721FDC50900F7EB25 /* Assets */,
@@ -332,6 +343,7 @@
 				CBA1537821FC6822007DFB73 /* AmountCompleter.swift in Sources */,
 				CBA1537A21FC6E19007DFB73 /* ConverterPresenter.swift in Sources */,
 				CBA1537221FC3F4D007DFB73 /* CurrencyCell.swift in Sources */,
+				CB6A32E221FE18A700F7EB25 /* NetworkProvider.swift in Sources */,
 				CB6A32DF21FE180D00F7EB25 /* ApiRatesFetchService.swift in Sources */,
 				CBA1534E21FA4779007DFB73 /* AppDelegate.swift in Sources */,
 				CB6A32CF21FDC33B00F7EB25 /* UIViewHelperMethods.swift in Sources */,
