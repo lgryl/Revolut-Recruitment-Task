@@ -26,7 +26,6 @@ class CurrencyCell: UITableViewCell {
         numberFormatter.maximumFractionDigits = 2
         numberFormatter.minimumIntegerDigits = 1
         
-        
         return numberFormatter
     }()
     
@@ -34,9 +33,21 @@ class CurrencyCell: UITableViewCell {
     var valueChangedAction: ((String, Decimal) -> ())?
     var beginEditAction: ((String) -> ())?
     
+    var value: Decimal? {
+        if let text = amountTextField.text, text.count > 0, let value = Decimal(string: text, locale: Locale.current) {
+            return value
+        } else {
+            return nil
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setupAmountTextField()
+    }
+    
+    private func setupAmountTextField() {
         amountTextField.keyboardType = .decimalPad
         amountTextField.delegate = self
         amountTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -44,6 +55,11 @@ class CurrencyCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        setupFlagImageViewRoundness()
+    }
+    
+    private func setupFlagImageViewRoundness() {
         flagImageView.layer.cornerRadius = flagImageView.bounds.width / 2
     }
     
@@ -56,8 +72,6 @@ class CurrencyCell: UITableViewCell {
         amountTextField.text = amountString
         
         symbolLabel.text = amount.currencyCode
-        
-        
         
         let flagImage = UIImage(named: "eu")
         flagImageView.image = flagImage
@@ -73,16 +87,16 @@ class CurrencyCell: UITableViewCell {
     }
     
     fileprivate func sendValueChangedActionEvent() {
-        if var text = amountTextField.text {
-            if text.count == 0 {
-                text = "0"
-            }
-            if let value = Decimal(string: text, locale: Locale.current), let valueChangedAction = valueChangedAction {
-                valueChangedAction(currencyCode, value)
-            }
+        if let value = value, let valueChangedAction = valueChangedAction {
+            valueChangedAction(currencyCode, value)
         }
     }
     
+    fileprivate func sendBeginEditActionEvent() {
+        if let beginEditAction = beginEditAction {
+            beginEditAction(currencyCode)
+        }
+    }
 }
 
 extension CurrencyCell: UITextFieldDelegate {
@@ -98,9 +112,7 @@ extension CurrencyCell: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if let beginEditAction = beginEditAction {
-            beginEditAction(currencyCode)
-        }
+        sendBeginEditActionEvent()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -111,5 +123,4 @@ extension CurrencyCell: UITextFieldDelegate {
     @objc func textFieldDidChange(_ textField: UITextField) {
         sendValueChangedActionEvent()
     }
-    
 }
