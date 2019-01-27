@@ -9,6 +9,6 @@
 import Foundation
 
 protocol RatesFetchService {
-    func fetchRates(completion: ((RatesResponseDTO) -> ()))
+    func fetchRates(completion: @escaping ((RatesResponseDTO) -> ()))
 }
 
