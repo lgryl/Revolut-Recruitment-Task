@@ -10,8 +10,7 @@ import UIKit
 
 extension ConverterViewController {
     func addTableViewAsSubview() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(tableView)
+        view.addSubviewWithoutConstraints(tableView)
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
