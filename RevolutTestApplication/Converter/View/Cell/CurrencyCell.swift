@@ -55,12 +55,6 @@ class CurrencyCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        setupFlagImageViewRoundness()
-    }
-    
-    private func setupFlagImageViewRoundness() {
-        flagImageView.layer.cornerRadius = flagImageView.bounds.width / 2
     }
     
     func configure(with amount: Amount) {
@@ -72,8 +66,9 @@ class CurrencyCell: UITableViewCell {
         amountTextField.text = amountString
         
         symbolLabel.text = amount.currencyCode
+        nameLabel.text = amount.currencyCode.localized()
         
-        let flagImage = UIImage(named: "eu")
+        let flagImage = UIImage(named: amount.currencyCode)
         flagImageView.image = flagImage
     }
     
