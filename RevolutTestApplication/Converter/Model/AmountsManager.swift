@@ -70,7 +70,7 @@ class AmountsManager {
         }
     }
     
-    public func update(baseCurrency: String = "EUR") {
+    public func update(baseCurrency: String = RatesManager.baseCurrencyCode) {
         for amount in amounts {
             if amount.currencyCode != baseCurrency, let ratesManager = ratesManager {
                 let rate = ratesManager.rate(from: baseCurrency, to: amount.currencyCode)

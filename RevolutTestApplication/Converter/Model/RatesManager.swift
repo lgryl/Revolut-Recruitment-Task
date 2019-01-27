@@ -9,6 +9,9 @@
 import Foundation
 
 class RatesManager {
+    
+    static let baseCurrencyCode = "EUR"
+    
     var rates: [String: Decimal] = [
         "AUD": 1.6111,
         "BGN": 1.9494,
@@ -45,17 +48,17 @@ class RatesManager {
     ]
     
     public func rate(for currencyCode: String) -> Decimal {
-        guard currencyCode != "EUR" else {
+        guard currencyCode != RatesManager.baseCurrencyCode else {
             return 1
         }
         return rates[currencyCode] ?? 1
     }
     
     public func rate(from sourceCurrency: String, to destinationCurrency: String) -> Decimal {
-        if sourceCurrency == "EUR" {
+        if sourceCurrency == RatesManager.baseCurrencyCode {
             return rate(for: destinationCurrency)
         }
-        if destinationCurrency == "EUR" {
+        if destinationCurrency == RatesManager.baseCurrencyCode {
             return 1 / rate(for: sourceCurrency)
         }
         let sourceToEuroRate = 1 / rate(for: sourceCurrency)

@@ -10,7 +10,7 @@ import UIKit
 
 class ConverterDataProvider: NSObject {
     weak var amountsManager: AmountsManager!
-    var lastEditedCurrencyCode = "EUR"
+    var lastEditedCurrencyCode = RatesManager.baseCurrencyCode
     var tableView: UITableView!
     
     private func reloadAllButSelectedRows(in tableView: UITableView, currentIndexPath: IndexPath) {
