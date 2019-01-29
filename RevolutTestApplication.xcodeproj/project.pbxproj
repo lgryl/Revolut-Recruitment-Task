@@ -38,6 +38,7 @@
 		CBB68F0A22009A280074A46F /* AmountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB68F0922009A280074A46F /* AmountTests.swift */; };
 		CBB68F0C22009DC80074A46F /* LocaleProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB68F0B22009DC80074A46F /* LocaleProviderTests.swift */; };
 		CBB68F0E22009F6E0074A46F /* ConverterPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB68F0D22009F6E0074A46F /* ConverterPresenterTests.swift */; };
+		CBB68F102200A20E0074A46F /* RatesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB68F0F2200A20E0074A46F /* RatesManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		CBB68F0922009A280074A46F /* AmountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTests.swift; sourceTree = "<group>"; };
 		CBB68F0B22009DC80074A46F /* LocaleProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleProviderTests.swift; sourceTree = "<group>"; };
 		CBB68F0D22009F6E0074A46F /* ConverterPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterPresenterTests.swift; sourceTree = "<group>"; };
+		CBB68F0F2200A20E0074A46F /* RatesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 				CBB68F0B22009DC80074A46F /* LocaleProviderTests.swift */,
 				CBB68F07220099DA0074A46F /* Others */,
 				CBB68F0D22009F6E0074A46F /* ConverterPresenterTests.swift */,
+				CBB68F0F2200A20E0074A46F /* RatesManagerTests.swift */,
 			);
 			path = RevolutTestApplicationTests;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBB68F0522008E850074A46F /* FakeLocaleProvider.swift in Sources */,
+				CBB68F102200A20E0074A46F /* RatesManagerTests.swift in Sources */,
 				CBB68F0C22009DC80074A46F /* LocaleProviderTests.swift in Sources */,
 				CBB68EFF21FF85C10074A46F /* AmountValidatorTests.swift in Sources */,
 				CBB68F0322008D8C0074A46F /* AmountCompleterTests.swift in Sources */,
