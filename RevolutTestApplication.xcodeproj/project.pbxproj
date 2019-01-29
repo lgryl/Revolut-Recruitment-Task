@@ -36,6 +36,7 @@
 		CBB68F0322008D8C0074A46F /* AmountCompleterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB68F0222008D8C0074A46F /* AmountCompleterTests.swift */; };
 		CBB68F0522008E850074A46F /* FakeLocaleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB68F0422008E850074A46F /* FakeLocaleProvider.swift */; };
 		CBB68F0A22009A280074A46F /* AmountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB68F0922009A280074A46F /* AmountTests.swift */; };
+		CBB68F0C22009DC80074A46F /* LocaleProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB68F0B22009DC80074A46F /* LocaleProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		CBB68F0222008D8C0074A46F /* AmountCompleterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountCompleterTests.swift; sourceTree = "<group>"; };
 		CBB68F0422008E850074A46F /* FakeLocaleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeLocaleProvider.swift; sourceTree = "<group>"; };
 		CBB68F0922009A280074A46F /* AmountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTests.swift; sourceTree = "<group>"; };
+		CBB68F0B22009DC80074A46F /* LocaleProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 			children = (
 				CBB68F0822009A100074A46F /* Model */,
 				CBB68F06220099CD0074A46F /* Validators */,
+				CBB68F0B22009DC80074A46F /* LocaleProviderTests.swift */,
 				CBB68F07220099DA0074A46F /* Others */,
 			);
 			path = RevolutTestApplicationTests;
@@ -403,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBB68F0522008E850074A46F /* FakeLocaleProvider.swift in Sources */,
+				CBB68F0C22009DC80074A46F /* LocaleProviderTests.swift in Sources */,
 				CBB68EFF21FF85C10074A46F /* AmountValidatorTests.swift in Sources */,
 				CBB68F0322008D8C0074A46F /* AmountCompleterTests.swift in Sources */,
 				CBB68F0A22009A280074A46F /* AmountTests.swift in Sources */,
