@@ -10,23 +10,25 @@ import Foundation
 
 class AmountCompleter {
     
-    static let digitRegularExpression: NSRegularExpression? = {
-        let trailingDigitPattern = "^\\d*$"
-        let trailingDigitRegularExpression = try? NSRegularExpression(pattern: trailingDigitPattern, options: [])
-        return trailingDigitRegularExpression
-    }()
+    let localeProvider: LocaleProvider
     
-    static let separatorRegularExpression: NSRegularExpression? = {
-        let trailingSeparatorPattern = "^\\d*\(LocaleHelper.escapedDecimalSeparator)$"
-        let trailingSeparatorRegularExpression = try? NSRegularExpression(pattern: trailingSeparatorPattern, options: [])
-        return trailingSeparatorRegularExpression
+    let trailingDigitRegularExpression: NSRegularExpression?
+    let trailingSeparatorRegularExpression: NSRegularExpression?
+    let trailingSeparatorAndDigitRegularExpression: NSRegularExpression?
+    
+    init(localeProvider: LocaleProvider = LocaleProvider()) {
+        self.localeProvider = localeProvider
+        
+        let trailingDigitPattern = "^\\d*$"
+        trailingDigitRegularExpression = try? NSRegularExpression(pattern: trailingDigitPattern, options: [])
+        
+        let trailingSeparatorPattern = "^\\d*\(localeProvider.escapedDecimalSeparator)$"
+        trailingSeparatorRegularExpression = try? NSRegularExpression(pattern: trailingSeparatorPattern, options: [])
 
-    }()
-    static let trailingSeparatorAndDigitRegularExpression: NSRegularExpression? = {
-        let separatorAndDigitPattern = "^\\d*\(LocaleHelper.escapedDecimalSeparator)\\d$"
-        let separatorAndDigitRegularExpression = try? NSRegularExpression(pattern: separatorAndDigitPattern, options: [])
-        return separatorAndDigitRegularExpression
-    }()
+        let separatorAndDigitPattern = "^\\d*\(localeProvider.escapedDecimalSeparator)\\d$"
+        trailingSeparatorAndDigitRegularExpression = try? NSRegularExpression(pattern: separatorAndDigitPattern, options: [])
+
+    }
     
     func complete(_ amount: String?) -> String? {
         guard let amount = amount else {
@@ -34,16 +36,16 @@ class AmountCompleter {
         }
 
         if amount.count == 0 {
-            return "0" + LocaleHelper.decimalSeparator + "00"
+            return "0" + localeProvider.decimalSeparator + "00"
         }
-        if string(amount, matches: AmountCompleter.trailingSeparatorAndDigitRegularExpression) {
+        if string(amount, matches: trailingSeparatorAndDigitRegularExpression) {
             return amount + "0"
         }
-        if string(amount, matches: AmountCompleter.separatorRegularExpression) {
+        if string(amount, matches: trailingSeparatorRegularExpression) {
             return amount + "00"
         }
-        if string(amount, matches: AmountCompleter.digitRegularExpression) {
-            return amount + LocaleHelper.decimalSeparator + "00"
+        if string(amount, matches: trailingDigitRegularExpression) {
+            return amount + localeProvider.decimalSeparator + "00"
         }
         
         return amount
