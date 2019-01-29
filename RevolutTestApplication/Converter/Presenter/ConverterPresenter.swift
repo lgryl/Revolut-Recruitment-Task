@@ -25,7 +25,7 @@ class ConverterPresenter {
         scheduleRatesFetch()
     }
     
-    private func scheduleRatesFetch() {
+    func scheduleRatesFetch() {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [unowned self](_) in
             self.ratesFetchService.fetchRates(completion: { [unowned self](responseDTO) in
                 if let rates = responseDTO.rates {
